@@ -145,10 +145,15 @@ func coVar(data1 []int, data2 []int) float64 {
 	return result
 }
 
+func coRelation(data1 []int, data2 []int) float64 {
+	result := coVar(data1, data2) / (standDev(data1) * standDev(data2))
+	return result
+}
+
 func main() {
 	values := []int{5, 7, 2, 2, 8, 5, 2, 10, 2, 6, 2}
 	values2 := []int{10, 1, 2, 1, 8, 2, 3, 1, 10, 5}
 
-	fmt.Print(coVar(values, values2))
+	fmt.Print(coRelation(values, values2))
 
 }

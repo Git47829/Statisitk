@@ -135,13 +135,13 @@ func coVar(data1 []int, data2 []int) float64 {
 	avg2 := arithmetricAverage(data2)
 	var res float64
 
-	for _, v := range data1 {
+	for i, v := range data1 {
 		resbetween1 := float64(v) - avg1
-		resbetween2 := float64(v) - avg2
+		resbetween2 := float64(data2[i]) - avg2
 		res += resbetween1 * resbetween2
 	}
 
-	result := res / float64(len(data1)+len(data2)-1)
+	result := res / float64(len(data1)-1)
 	return result
 }
 
@@ -151,9 +151,8 @@ func coRelation(data1 []int, data2 []int) float64 {
 }
 
 func main() {
-	values := []int{5, 7, 2, 2, 8, 5, 2, 10, 2, 6, 2}
-	values2 := []int{10, 1, 2, 1, 8, 2, 3, 1, 10, 5}
+	var data1 = []int{5,7,2,2,8,5,10,2,6,2}
+	var data2 = []int{10,1,2,1,8,2,3,1,10,5}
 
-	fmt.Print(coRelation(values, values2))
-
+	fmt.Println(coRelation(data1, data2))
 }
